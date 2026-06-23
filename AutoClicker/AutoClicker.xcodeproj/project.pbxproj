@@ -10,23 +10,15 @@
 		14B5A26A1A0A3B4A00A75B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5A2691A0A3B4A00A75B9A /* AppDelegate.swift */; };
 		14B5A26C1A0A3B4A00A75B9A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B5A26B1A0A3B4A00A75B9A /* Info.plist */; };
 		14B5A26E1A0A3B5A00A75B9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5A26D1A0A3B5A00A75B9A /* ViewController.swift */; };
+		14B5A2741A0A3B6A00A75B9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B5A2751A0A3B6A00A75B9A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		14B5A2711A0A3B5A00A75B9A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14B5A25F1A0A3B4A00A75B9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14B5A2641A0A3B4A00A75B9A;
-			remoteInfo = AutoClicker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		14B5A25B1A0A3B4A00A75B9A /* AutoClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoClicker; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B5A2691A0A3B4A00A75B9A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B5A26B1A0A3B4A00A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B5A26D1A0A3B5A00A75B9A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14B5A2751A0A3B6A00A75B9A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +45,18 @@
 			children = (
 				14B5A2691A0A3B4A00A75B9A /* AppDelegate.swift */,
 				14B5A26D1A0A3B5A00A75B9A /* ViewController.swift */,
+				14B5A2771A0A3B7A00A75B9A /* Base.lproj */,
 				14B5A26B1A0A3B4A00A75B9A /* Info.plist */,
 			);
 			path = AutoClicker;
+			sourceTree = "<group>";
+		};
+		14B5A2771A0A3B7A00A75B9A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				14B5A2751A0A3B6A00A75B9A /* LaunchScreen.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		14B5A2681A0A3B4A00A75B9A /* Products */ = {
@@ -120,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B5A26C1A0A3B4A00A75B9A /* Info.plist in Resources */,
+				14B5A2741A0A3B6A00A75B9A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +145,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECTIVE-C_CONSTANT = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -177,6 +178,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = AutoClicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -199,7 +201,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECTIVE-C_CONSTANT = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -227,6 +228,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = AutoClicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
