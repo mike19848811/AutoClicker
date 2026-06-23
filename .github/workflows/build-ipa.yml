@@ -7,22 +7,48 @@ on:
 
 jobs:
   build:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build IPA
-      uses: ios-bootcamp/ios-build-ipa-action@v2
-      with:
-        project-path: AutoClicker/AutoClicker.xcodeproj
-        scheme: AutoClicker
-        configuration: Release
-        output-path: AutoClicker.ipa
+    - name: Build archive
+      run: |
+        xcodebuild archive \
+          -project AutoClicker/AutoClicker.xcodeproj \
+          -scheme AutoClicker \
+          -configuration Release \
+          -archivePath AutoClicker.xcarchive \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
+
+    - name: Export IPA
+      run: |
+        mkdir -p export
+        echo '<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>method</key>
+          <string>development</string>
+          <key>signingStyle</key>
+          <string>none</string>
+          <key>uploadSymbols</key>
+          <false/>
+        </dict>
+        </plist>' > ExportOptions.plist
+        xcodebuild -exportArchive \
+          -archivePath AutoClicker.xcarchive \
+          -exportPath export \
+          -exportOptionsPlist ExportOptions.plist \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
 
     - name: Upload IPA artifact
       uses: actions/upload-artifact@v4
       with:
         name: AutoClicker-ipa
-        path: AutoClicker.ipa
+        path: export/*.ipa
