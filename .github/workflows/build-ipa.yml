@@ -14,14 +14,13 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build IPA
-      uses: yukiarrr/ios-build-action@v2
+      uses: yukiarrr/ios-build-action@v1.3.0
       with:
         project-path: AutoClicker/AutoClicker.xcodeproj
         scheme: AutoClicker
         configuration: Release
         output-path: output/AutoClicker.ipa
         export-method: ad-hoc
-        xcode-version: latest
 
     - name: Upload IPA artifact
       uses: actions/upload-artifact@v4
