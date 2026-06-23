@@ -1,0 +1,32 @@
+﻿name: 编译iOS IPA
+
+# 触发条件：推送代码到main分支，或者手动触发
+on:
+  push:
+    - main
+  manual: true
+
+# 任务
+jobs:
+  build:
+    name: 编译IPA
+    # 使用Mac环境
+    runs-on: macos-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v3
+
+      - name: 编译导出IPA
+        uses: yukiarrr/ios-build-action@v2
+        with:
+          project-path: AutoClicker/AutoClicker.xcodeproj
+          scheme: AutoClicker
+          configuration: Release
+          output-path: output/AutoClicker.ipa
+          export-method: ad-hoc
+
+      - name: 上传IPA产物
+        uses: actions/upload-artifact@v3
+        with:
+          name: AutoClicker.ipa
+          path: output/AutoClicker.ipa

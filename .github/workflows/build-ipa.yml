@@ -1,0 +1,29 @@
+﻿name: Build iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build IPA
+      uses: yukiarrr/ios-build-action@v2
+      with:
+        project-path: AutoClicker/AutoClicker.xcodeproj
+        scheme: AutoClicker
+        configuration: Release
+        output-path: output/AutoClicker.ipa
+        export-method: ad-hoc
+
+    - name: Upload IPA artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AutoClicker-ipa
+        path: output/AutoClicker.ipa

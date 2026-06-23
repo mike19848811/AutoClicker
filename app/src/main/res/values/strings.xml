@@ -1,0 +1,9 @@
+﻿<resources>
+    <string name="app_name">自动点击器</string>
+    <string name="accessibility_service_description">自动点击屏幕，支持根据屏幕内容自动点击</string>
+    <string name="start_click">开始点击</string>
+    <string name="stop_click">停止点击</string>
+    <string name="status_running">运行中</string>
+    <string name="status_stopped">已停止</string>
+    <string name="status_no_permission">需要开启辅助功能权限</string>
+</resources>
