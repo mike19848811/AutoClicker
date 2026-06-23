@@ -13,14 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build IPA
-      uses: yukiarrr/ios-build-action@v1.3.0
-      with:
-        project-path: AutoClicker/AutoClicker.xcodeproj
-        scheme: AutoClicker
-        configuration: Release
-        output-path: output/AutoClicker.ipa
-        export-method: ad-hoc
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+    - name: Build project
+      run: |
+        xcodebuild -project AutoClicker/AutoClicker.xcodeproj -scheme AutoClicker -configuration Release -archivePath build/AutoClicker.xcarchive archive
+        mkdir -p output
+        xcodebuild -exportArchive -archivePath build/AutoClicker.xcarchive -exportPath output -exportOptionsPlist .github/ExportOptions.plist
 
     - name: Upload IPA artifact
       uses: actions/upload-artifact@v4
